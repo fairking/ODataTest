@@ -20,7 +20,7 @@
     "ODataTest": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "odata/weatherforecast",
+      "launchUrl": "odata/weatherforecast2",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

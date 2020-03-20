@@ -45,9 +45,8 @@ namespace ODataTest
                 endpoints.MapControllers();
                 endpoints.EnableDependencyInjection();
                 endpoints.Expand().Select().Count().OrderBy().Filter().MaxTop(100);
-                endpoints.MapODataRoute("odata", null, GetEdmModel());
+                endpoints.MapODataRoute("odata", "odata", GetEdmModel());
             });
-
         }
 
         public static IEdmModel GetEdmModel()
