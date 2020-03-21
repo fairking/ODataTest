@@ -52,7 +52,7 @@ namespace ODataTest
         public static IEdmModel GetEdmModel()
         {
             var builder = new ODataConventionModelBuilder();
-            builder.EntitySet<WeatherForecast>("WeatherForecasts");
+            builder.EntitySet<WeatherForecast>("WeatherForecast");
             builder.EnableLowerCamelCase();
             return builder.GetEdmModel();
         }
