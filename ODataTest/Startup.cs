@@ -34,7 +34,7 @@ namespace ODataTest
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
 
@@ -52,7 +52,7 @@ namespace ODataTest
         public static IEdmModel GetEdmModel()
         {
             var builder = new ODataConventionModelBuilder();
-            builder.EntitySet<WeatherForecast>("WeatherForecast");
+            builder.EntitySet<WeatherForecast>("WeatherData");
             builder.EnableLowerCamelCase();
             return builder.GetEdmModel();
         }

@@ -9,16 +9,16 @@ namespace ODataTest.Controllers
 {
     [ApiController]
     [Route("/odata/[controller]")]
-    public class WeatherForecast2Controller : ControllerBase
+    public class WeatherDataController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
 
-        private readonly ILogger<WeatherForecast2Controller> _logger;
+        private readonly ILogger<WeatherDataController> _logger;
 
-        public WeatherForecast2Controller(ILogger<WeatherForecast2Controller> logger)
+        public WeatherDataController(ILogger<WeatherDataController> logger)
         {
             _logger = logger;
         }
