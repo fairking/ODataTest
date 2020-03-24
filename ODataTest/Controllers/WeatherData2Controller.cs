@@ -1,15 +1,15 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNet.OData;
+﻿using Microsoft.AspNet.OData;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace ODataTest.Controllers
 {
     [ApiController]
     [Route("/odata/{controller}")]
-    public class WeatherDataController : ControllerBase
+    public class WeatherData2Controller : ControllerBase
     {
         private static readonly string[] Summaries = new[]
         {
@@ -18,7 +18,7 @@ namespace ODataTest.Controllers
 
         private readonly ILogger<WeatherDataController> _logger;
 
-        public WeatherDataController(ILogger<WeatherDataController> logger)
+        public WeatherData2Controller(ILogger<WeatherDataController> logger)
         {
             _logger = logger;
         }
