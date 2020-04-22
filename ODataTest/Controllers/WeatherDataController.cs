@@ -30,7 +30,7 @@ namespace ODataTest.Controllers
             var rng = new Random();
             return Task.Run(() =>
             {
-                return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+                return Enumerable.Range(1, 25).Select(index => new WeatherForecast
                 {
                     Key = Guid.NewGuid().ToString("N"),
                     Date = DateTime.Now.AddDays(index),
