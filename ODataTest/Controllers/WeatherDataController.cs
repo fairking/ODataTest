@@ -1,9 +1,9 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNet.OData;
+﻿using Microsoft.AspNet.OData;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace ODataTest.Controllers
 {
@@ -11,35 +11,23 @@ namespace ODataTest.Controllers
     [Route("/odata/{controller}")]
     public class WeatherDataController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
+        private static IEnumerable<WeatherForecast> _items;
         private readonly ILogger<WeatherDataController> _logger;
 
         public WeatherDataController(ILogger<WeatherDataController> logger)
         {
             _logger = logger;
+            _items = WeatherForecast.GenerateDemo();
         }
 
         [HttpGet]
         [EnableQuery]
         public Task<IQueryable<WeatherForecast>> Get()
         {
-            var rng = new Random();
             return Task.Run(() =>
             {
-                return Enumerable.Range(1, 25).Select(index => new WeatherForecast
-                {
-                    Key = Guid.NewGuid().ToString("N"),
-                    Date = DateTime.Now.AddDays(index),
-                    TemperatureC = rng.Next(-20, 55),
-                    Summary = Summaries[rng.Next(Summaries.Length)]
-                })
-                .AsQueryable();
+                return _items.AsQueryable();
             });
         }
-
     }
 }

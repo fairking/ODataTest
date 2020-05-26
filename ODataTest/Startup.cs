@@ -1,4 +1,3 @@
-using System.Linq;
 using Microsoft.AspNet.OData.Builder;
 using Microsoft.AspNet.OData.Extensions;
 using Microsoft.AspNetCore.Builder;
@@ -7,6 +6,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OData.Edm;
+using System;
+using System.Linq;
 
 namespace ODataTest
 {
@@ -47,6 +48,7 @@ namespace ODataTest
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.SetTimeZoneInfo(TimeZoneInfo.Utc);
                 endpoints.MapControllers();
                 endpoints.EnableDependencyInjection();
                 endpoints.Expand().Select().Count().OrderBy().Filter().MaxTop(100);
@@ -62,6 +64,5 @@ namespace ODataTest
             builder.EnableLowerCamelCase();
             return builder.GetEdmModel();
         }
-
     }
 }
